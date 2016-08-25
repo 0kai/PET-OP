@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 描述 -->
+    <string name="app_name">桌面宠物</string>
+    <string name="luffy_full_name">蒙奇·D·路飛\n(MONKEY·D·LUFFY)</string>
+    <string name="zoro_full_name">羅洛亞·卓洛\n(RORONOA·ZORO)</string>
+    <string name="law_full_name">特拉法爾加·羅\n(TRAFALGAR·LAW)</string>
+    <string name="chopper_full_name">托尼托尼·喬巴\n(TONY ~·CHOPPER)</string>
+    <string name="luffy">LUFFY</string>
+    <string name="zoro">ZORO</string>
+    <string name="law">LAW</string>
+    <string name="chopper">CHOPPER</string>
+    <string name="welcome_hlep">【INTRODUCTION】\n
+								《Desktop PET：OP》V5 Update, add online download rescourse.
+								Update again, thank you for your support!
+								This version include: Luffy, Zoro, Law and Chopper.\n
+								This lovely person can show in any screen, never confined to the wallpaper, just show it.
+								It also can show the date time for you. Fans of One Piece, get it for your phone now!\n\n
+								【VERSION HISTORY】\n
+								Ver5.1.1:\n
+								1、Fix server errors\n
+								2、Add My apps\n
+								【HELP】\n
+								Don not delete the rescourse after download, if any error,
+								 you can download the person again.\n
+								Thank you!
+	</string>
+    <!-- 信息保留静态字段 -->
+    <string name="sp_name">one_piece_settings</string>
+    
+    <!-- 版本信息 -->
+    <string name="about1">Developer：Z_0Kai\t(Ver.：5.1.0)</string>
+    <string name="about2">Web：http://0kai.net(Receiving feedback)\nWaiting for new Ver. &amp; more apps</string>
+    
+    <!-- 应用中的语句 -->
+    <string name="str_thx_old_vision">谢谢旧版用户的支持，奖励50积分</string>
+    <string name="str_ok">OK</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_open_zoro_1">You have not activate "ZORO", open it only need</string>
+    <string name="str_open_zoro_2">score, you can select it after active, and needn\'t do it again. \n*1*Activate now?\n*2*If you don\'t have enough score, get it free!</string>
+    <string name="str_open_delete_ad_1">You have not remove the ad, remove it only need</string>
+    <string name="str_open_delete_ad_2">score, never show ad after remove it.\n*1*Remove ad now?\n*2*If you don\'t have enough score, get it free!\n*3*Ad will not trouble for your using.</string>
+    <string name="str_open_tip_1">(Current score:</string>
+    <string name="str_open_tip_2">, need</string>
+    <string name="str_open_right_now">Activate it Now</string>
+    <string name="str_had_open_delete_ad">Activated, would not show it next time</string>
+    <string name="str_had_open_person">Activated, please see the person setting</string>
+    <string name="str_get_free_score">Get Free Score</string>
+    <string name="str_open_fail_tip">Activate fail, score limit</string>
+    <string name="str_open_fail_msg">Please get more score and try it again, thank you!\nUsing WiFi to get free score first</string>
+    <string name="str_person_settings">Person select and setting</string>
+    <string name="str_at_least_one">At least select one item</string>
+    <string name="str_display_setting">Display Setting</string>
+    <string name="str_display_person">Display Animation</string>
+    <string name="str_all_app_visible">Display all the time</string>
+    <string name="str_all_app_on">Display top over all applications</string>
+    <string name="str_all_app_off">Only display on desktop and this app</string>
+    <string name="str_long_click_setting">Long Touch Setting</string>
+    <string name="str_long_click_start_app">Long touch the person without move, start the app for setting</string>
+    <string name="str_anim_setting">Animation Setting</string>
+    <string name="str_chose_person">Select Person</string>
+    <string name="str_person_setting">Select Person and Setting</string>
+    <string name="str_anim_time">Animation Time</string>
+    <string name="str_anim_to_show_time">Move the person to the left/right of screen would show date/time</string>
+    <string name="str_person_size">Animation Size</string>
+    <string name="str_chose_person_size">Click to chose the size of animation</string>
+    <string name="str_walk_speed">Running Speed</string>
+    <string name="str_click_to_chose_walk_speed">Click to chose the running speed of animation</string>
+    <string name="str_chose_walk_speed">Running Speed(more faster more power would need)</string>
+    <string name="str_change_frequency">Frequency</string>
+    <string name="str_click_to_chose_frequency">Click to chose the frequency of actions</string>
+    <string name="str_more">MORE</string>
+    <string name="str_delete_ad">Move AD</string>
+    <string name="str_after_delete_ad">Move ad and wouldn\'t show again. Ad will not trouble for your using</string>
+    <string name="str_help_and_version">APP Help&amp;Version Info</string>
+    <string name="str_crawl">CRAWL</string>
+    <string name="str_eat_meat">EAT MEAT</string>
+    <string name="str_sit">SIT</string>
+    <string name="str_walk">WALK</string>
+    <string name="str_stand">STAND</string>
+    <string name="str_sleep">SLEEP</string>
+    <string name="str_eat">EAT</string>
+    <string name="str_sleepy">SLEEPY</string>
+    <string name="str_dance">DANCE</string>
+    <string name="str_ball">BALL</string>
+    <string name="str_bar">BAR</string>
+    <string name="str_happy">HAPPY</string>
+    <string name="str_shock">SHOCK</string>
+    <string name="str_star">STAR</string>
+    <string name="str_boot_startup">Startup during boot</string>
+    <string name="str_boot_startup_summary">Show the pet after startup the phone</string>
+    
+    <!-- store -->
+    <string name="str_local">Local</string>
+    <string name="str_online">Online</string>
+    <string name="str_store_title">Persons</string>
+    <string name="str_connect_fail">Connect fail, please try latter!</string>
+    <string name="str_store_download">Download</string>
+    <string name="str_store_downloading">Downloading&#8230;</string>
+    <string name="str_store_download_over">Downloaded, please select in local setting.</string>
+    <string name="str_person_download_ad">Res download，using WiFi first。\n*1*Need 30 point to download。\n*2*You can get the point by free!\n*2*After downloaded, do not delete the data。\n*3*If you had delete the data or some error, download again。\n*4*If out of memory or no sdcard may cause error.</string>
+    <string name="str_person_download">Res download，using WiFi first。\n*1*After downloaded, don not delete the data。\n*2*If you had delete the data or some error, download again。\n*3*If out of memory or no sdcard may cause error.</string>
+    <string name="str_share">Share</string>
+    <string name="str_update">Check update</string>
+    <string name="str_share_content">Commend an app《Desktop PET: OP》,Luffy/Zoro/Chopper and more lovely person, you can put it on the phone!.Download：http://0kai.net/d/pet_op.html</string>
+    <string name="str_share_summary">Let you friends to had one</string>
+    <string name="str_app_res_error">**Pet had some error, you may delete some res, please download again**</string>
+    <string name="str_loading">Loading&#8230;</string>
+    <string name="str_no_new_version">No New Version</string>
+    <string name="str_new_version">Find New Version</string>
+    <string name="str_new_res">(New)</string>
+    <string name="str_download_error">Failed，No SDcard or Out of Memory!</string>
+    
+    <string name="str_my_apps">My other Apps</string>
+    <string name="str_my_apps_info">More apps by developer</string>
+    
+    <string name="str_"></string>
+</resources>

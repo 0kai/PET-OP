@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- 人物设置 -->
+    <PreferenceCategory android:title="@string/str_display_setting">
+    	<!-- 显示动画 -->
+        <CheckBoxPreference
+            android:key="person_visible"
+            android:title="@string/str_display_person"
+            />
+    	<!-- 一直显示 -->
+        <CheckBoxPreference
+            android:key="all_app_visible"
+            android:title="@string/str_all_app_visible"
+            android:summaryOn="@string/str_all_app_on"
+            android:summaryOff="@string/str_all_app_off"
+            android:dependency="person_visible"
+            />
+    	<!-- 开机启动 -->
+        <CheckBoxPreference
+            android:key="boot_startup"
+            android:title="@string/str_boot_startup"
+            android:summary="@string/str_boot_startup_summary"
+            android:dependency="person_visible"
+            />
+        <!-- 长按启动设置 -->
+        <CheckBoxPreference
+            android:key="long_down"
+            android:title="@string/str_long_click_setting"
+            android:summary="@string/str_long_click_start_app"
+            android:dependency="person_visible"
+            />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/str_anim_setting">
+        <!-- 人物选择 -->
+        <Preference
+            android:key="person_select"
+	        android:title="@string/str_chose_person"
+	        android:summary="@string/str_person_setting"
+	        />
+        <!-- 动画报时 -->
+        <CheckBoxPreference
+            android:key="draw_time"
+            android:title="@string/str_anim_time"
+            android:summary="@string/str_anim_to_show_time"
+            />
+	    <!-- 动画大小 -->
+        <ListPreference
+            android:key="person_size"
+            android:title="@string/str_person_size"
+            android:summary="@string/str_chose_person_size"
+            android:entries="@array/person_size"
+            android:entryValues="@array/person_size_value"
+            android:defaultValue="0.4"
+            android:negativeButtonText="@string/str_cancel"
+            />
+        <!--行走速度-->
+        <ListPreference 
+            android:key="frame_time"
+            android:title="@string/str_walk_speed"
+            android:summary="@string/str_click_to_chose_walk_speed"
+            android:dialogTitle="@string/str_chose_walk_speed"
+            android:entries="@array/frame_time"
+            android:entryValues="@array/frame_time_value"
+            android:defaultValue="150"
+            android:negativeButtonText="@string/str_cancel"
+            />
+        <!--变换频率-->
+        <ListPreference 
+            android:key="random_time"
+            android:title="@string/str_change_frequency"
+            android:summary="@string/str_click_to_chose_frequency"
+            android:entries="@array/random_time"
+            android:entryValues="@array/random_time_value"
+            android:defaultValue="5000"
+            android:negativeButtonText="@string/str_cancel"
+            />
+    </PreferenceCategory>
+<!-- 更多 -->
+	<PreferenceCategory android:title="@string/str_more" android:key="more_settings">
+<!-- 激活应用，只有旧版本才使用
+		<Preference
+			android:key="open_app"
+			android:title="激活应用"
+			android:summary="激活，可长期使用本应用"
+			/>
+ 
+	    <Preference
+	        android:key="open_delete_ad"
+	        android:title="@string/str_delete_ad"
+	        android:summary="@string/str_after_delete_ad"
+	        />
+ 去掉这个模块，后续需要给成自己的应用推荐 
+	    <Preference 
+	        android:key="waps_recommend"
+	        android:title="更多应用推荐"
+	        android:summary="点查看更多手机必备精品应用"
+	        />
+-->
+		<Preference 
+		    android:key="app_share"
+		    android:title="@string/str_share"
+			android:summary="@string/str_share_summary"
+		    />
+		<Preference
+			android:key="app_help"
+			android:title="@string/str_help_and_version"
+			/>
+		<Preference
+			android:key="app_update"
+			android:title="@string/str_update"
+			/>
+		<Preference
+			android:key="my_apps"
+			android:title="@string/str_my_apps"
+			android:summary="@string/str_my_apps_info"
+			/>
+	    <Preference 
+	        android:title="@string/about1"
+	        android:summary="@string/about2"
+	        />
+	</PreferenceCategory>
+</PreferenceScreen>

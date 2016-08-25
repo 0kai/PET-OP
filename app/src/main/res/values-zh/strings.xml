@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 描述 -->
+    <string name="app_name">桌面宠物</string>
+    <string name="luffy_full_name">蒙奇·D·路飛\n(MONKEY·D·LUFFY)</string>
+    <string name="zoro_full_name">羅洛亞·卓洛\n(RORONOA·ZORO)</string>
+    <string name="law_full_name">特拉法爾加·羅\n(TRAFALGAR·LAW)</string>
+    <string name="chopper_full_name">托尼托尼·喬巴\n(TONY ~·CHOPPER)</string>
+    <string name="luffy">路飛</string>
+    <string name="zoro">卓洛</string>
+    <string name="law">羅</string>
+    <string name="chopper">喬巴</string>
+    <string name="welcome_hlep">【介绍】\n
+								《桌面宠物：OP版》V5重大升级，添加了网络更新下载资源功能。
+								版本中默认本地人物：路飞、卓洛、罗和乔巴。
+								本人属于上班族，空余时间开发，感谢大家的支持，谢谢！\n
+								如果觉得不错就分享给好友吧！\n
+								期待下次更新，请关注在线人物的更新。\n
+								这个可爱的小人物可以在任何界面上显示，不再局限于壁纸上，也不需要为壁纸更换的局限个烦恼，
+								还可以为你播报日期时间。海迷们还等什么，快来领取你的桌面宠物吧！\n\n
+								【版本说明】\n
+								Ver5.1.1:\n
+								1、修复了无法下载问题\n
+								【帮助】\n
+								在线资源下载，请不要删除本地中的资源文件，若不小心删除了，请在人物选择中重新下载。
+								如有疑问，请到官网反馈。
+	</string>
+    <!-- 信息保留静态字段 -->
+    <string name="sp_name">one_piece_settings</string>
+    
+    <!-- 版本信息 -->
+    <string name="about1">作者：Z_0Kai\t(版本：5.1.1)</string>
+    <string name="about2">官网：http://0kai.net\n新浪微博:http://weibo.com/zrk001</string>
+    
+    <!-- 应用中的语句 -->
+    <string name="str_thx_old_vision">谢谢旧版用户的支持，奖励50积分</string>
+    <string name="str_ok">确定</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_open_zoro_1">您还未激活人物"卓洛",激活只需</string>
+    <string name="str_open_zoro_2">积分,激活后可以选择显示，无需再次激活。\n*1*马上激活?\n*2*若积分不足,可获取免费积分!</string>
+    <string name="str_open_delete_ad_1">您还未激活去除广告功能,激活只需</string>
+    <string name="str_open_delete_ad_2">积分,激活后在下次启动不再显示广告。\n*1*马上激活,去除广告?\n*2*若积分不足,可获取免费积分!\n*3*若未激活,不影响使用。</string>
+    <string name="str_open_tip_1">(当前积分:</string>
+    <string name="str_open_tip_2">,需</string>
+    <string name="str_open_right_now">马上激活</string>
+    <string name="str_had_open_delete_ad">已激活,无需重复,下次启动不再显示</string>
+    <string name="str_had_open_person">已激活,请在人物选择中设置</string>
+    <string name="str_get_free_score">免费获取积分</string>
+    <string name="str_open_fail_tip">积分不足,无法下载</string>
+    <string name="str_open_fail_msg">请获得更多积分后,再次下载,谢谢!\n建议在无线网络下(WiFi)免费获取积分</string>
+    <string name="str_person_settings">人物选择及设置</string>
+    <string name="str_at_least_one">至少选择一项</string>
+    <string name="str_display_setting">显示设置</string>
+    <string name="str_display_person">显示动画</string>
+    <string name="str_all_app_visible">一直显示</string>
+    <string name="str_all_app_on">在所有应用中显示</string>
+    <string name="str_all_app_off">只在桌面上和本应用中显示</string>
+    <string name="str_long_click_setting">长按设置</string>
+    <string name="str_long_click_start_app">长按(未移动)动画,启动设置界面</string>
+    <string name="str_anim_setting">动画设置</string>
+    <string name="str_chose_person">人物选择</string>
+    <string name="str_person_setting">选择需要显示的人物及设置</string>
+    <string name="str_anim_time">动画报时</string>
+    <string name="str_anim_to_show_time">拖动动画到屏幕左边（日期）或者右边（时间）</string>
+    <string name="str_person_size">动画大小</string>
+    <string name="str_chose_person_size">点击选择选择动画大小</string>
+    <string name="str_walk_speed">行走速度</string>
+    <string name="str_click_to_chose_walk_speed">点击选择动画行走速度</string>
+    <string name="str_chose_walk_speed">行走速度(速度快,耗电大)</string>
+    <string name="str_change_frequency">变换频率</string>
+    <string name="str_click_to_chose_frequency">点击选择动画之间变换频率</string>
+    <string name="str_more">更多</string>
+    <string name="str_delete_ad">一键去除广告</string>
+    <string name="str_after_delete_ad">去除广告则不再显示，有无广告不影响使用</string>
+    <string name="str_help_and_version">应用帮助&amp;版本信息</string>
+    <string name="str_crawl">爬行</string>
+    <string name="str_eat_meat">吃肉</string>
+    <string name="str_sit">坐着</string>
+    <string name="str_walk">行走</string>
+    <string name="str_stand">站立</string>
+    <string name="str_sleep">睡觉</string>
+    <string name="str_eat">吃</string>
+    <string name="str_sleepy">打盹</string>
+    <string name="str_dance">舞动</string>
+    <string name="str_ball">毛球</string>
+    <string name="str_bar">棍子</string>
+    <string name="str_happy">高兴</string>
+    <string name="str_shock">惊吓</string>
+    <string name="str_star">放金星</string>
+    <string name="str_boot_startup">开机启动</string>
+    <string name="str_boot_startup_summary">请确保系统允许本应用能开机启动</string>
+    
+    <!-- store -->
+    <string name="str_local">本地</string>
+    <string name="str_online">在线</string>
+    <string name="str_connect_fail">连接失败,请返回后重试!</string>
+    <string name="str_store_title">人物</string>
+    <string name="str_store_download">下载</string>
+    <string name="str_store_downloading">下载中&#8230;</string>
+    <string name="str_store_download_over">下载完成,请在本地选项中设置</string>
+    <string name="str_person_download_ad">资源下载，建议在WIFI下进行。\n*1*本次下载需要35个积分。\n*2*若积分不足,可获取免费积分!\n*3*下载后请勿删除本地资源文件。\n*3*若不小心删除了资源，或者该人物显示错误，请重新下载，重新下载不需要积分。\n*4*如果内存不足或者没有存储设备，可能导致下载失败。</string>
+    <string name="str_person_download">资源下载，建议在WIFI下进行。\n*1*下载后请勿删除本地资源文件。\n*2*若不小心删除了资源，或者该人物显示错误，请重新下载。\n*3*如果内存不足或者没有存储设备，可能导致下载失败。</string>
+    <string name="str_share">好友分享</string>
+    <string name="str_update">检测更新</string>
+    <string name="str_share_content">推荐《桌面宠物:OP版》这款应用,路飞/索罗/乔巴等多个Q版动画人物,可以在桌面上玩耍,快来领养一个吧!.下载地址：http://0kai.net/d/pet_op.html</string>
+    <string name="str_share_summary">让好友也来领养一个吧</string>
+    <string name="str_app_res_error">**桌面宠物报错了,请勿删除资源,重新更新一下资源吧**</string>
+    <string name="str_loading">拼命加载中&#8230;</string>
+    <string name="str_no_new_version">当前版本已经是最新版</string>
+    <string name="str_new_version">发现新版本</string>
+    <string name="str_new_res">(可更新)</string>
+    <string name="str_download_error">下载失败，无网络或内存不足或者没有储存卡!</string>
+    
+    <string name="str_my_apps">更多应用-new-</string>
+    <string name="str_my_apps_info">开发者的其他应用</string>
+
+    <string name="str_"></string>
+</resources>

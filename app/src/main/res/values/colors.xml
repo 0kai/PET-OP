@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="store_btn_focus">#55f3f3f3</color>
+  <color name="store_btn_unfocus">#ff222222</color>
+  <color name="store_btn_text_focus">#ffffffff</color>
+  <color name="store_btn_text_unfocus">#ff666666</color>
+</resources>

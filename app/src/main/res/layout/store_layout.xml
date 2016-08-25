@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_store_title"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:padding="5dip"
+        />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+	    <Button 
+	        android:id="@+id/store_local_btn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dip"
+	        android:layout_margin="1dip"
+	        android:layout_weight="1"
+	        android:text="@string/str_local"
+	        android:background="@drawable/store_btn"
+	        android:textColor="@drawable/store_btn_text"
+	        />
+	    <Button 
+	        android:id="@+id/store_online_btn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dip"
+	        android:layout_margin="1dip"
+	        android:layout_weight="1"
+	        android:text="@string/str_online"
+	        android:background="@drawable/store_btn"
+	        android:textColor="@drawable/store_btn_text"
+	        />
+    </LinearLayout>
+    
+    <akai.pet.one.piece.store.StoreGridView
+        android:id="@+id/store_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="3"
+        android:columnWidth="90.0dip"
+        android:scrollbars="none"
+        android:listSelector="@android:color/transparent"
+        />
+</LinearLayout>

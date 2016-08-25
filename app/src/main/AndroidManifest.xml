@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="akai.floatView.op.luffy" >
+
+	<!-- 悬浮窗的使用 -->
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<!-- 有米 -->
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity android:name="akai.pet.one.piece.settings.MainSettings"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name="akai.pet.one.piece.AppService"
+           android:configChanges="orientation|keyboardHidden"/>
+        <activity 
+            android:name="akai.pet.one.piece.store.StoreActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait"
+            />
+        <receiver android:name="akai.pet.one.piece.AppService$Receivers">
+            <intent-filter>
+            	<action android:name="android.intent.action.BOOT_COMPLETED" />
+            	<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+        <activity android:name="akai.pet.one.piece.AppWebView"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait"
+            />
+        
+        <!-- 有米 -->
+		<activity
+		    android:name="a.b.c.AdBrowser"
+		    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+		    android:theme="@android:style/Theme.Light.NoTitleBar" >
+		</activity>
+		<service
+		    android:name="a.b.c.AdService"
+		    android:exported="false" >
+		</service>
+		<service
+		    android:name="a.b.c.ExpService"
+		    android:exported="false" >
+		</service>
+		<receiver
+		    android:name="a.b.c.AdReceiver" >
+		    <intent-filter>
+		        <action android:name="android.intent.action.PACKAGE_ADDED" />
+		        <data android:scheme="package" />
+		    </intent-filter>
+		</receiver>
+		<!-- Umeng analytics -->
+	    <meta-data android:value="5282396956240b5d2c023039" android:name="UMENG_APPKEY"></meta-data>
+		<meta-data android:value="Baidu" android:name="UMENG_CHANNEL"/>
+    </application>
+</manifest>
