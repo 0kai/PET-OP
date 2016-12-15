@@ -19,7 +19,7 @@
 								这个可爱的小人物可以在任何界面上显示，不再局限于壁纸上，也不需要为壁纸更换的局限个烦恼，
 								还可以为你播报日期时间。海迷们还等什么，快来领取你的桌面宠物吧！\n\n
 								【版本说明】\n
-								Ver5.1.1:\n
+								Ver5.1.2:\n
 								1、修复了无法下载问题\n
 								【帮助】\n
 								在线资源下载，请不要删除本地中的资源文件，若不小心删除了，请在人物选择中重新下载。
@@ -29,7 +29,7 @@
     <string name="sp_name">one_piece_settings</string>
     
     <!-- 版本信息 -->
-    <string name="about1">作者：Z_0Kai\t(版本：5.1.1)</string>
+    <string name="about1">作者：Z_0Kai\t(版本：5.1.2)</string>
     <string name="about2">官网：http://0kai.net\n新浪微博:http://weibo.com/zrk001</string>
     
     <!-- 应用中的语句 -->

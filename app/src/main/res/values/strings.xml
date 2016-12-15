@@ -27,11 +27,11 @@
 	</string>
     <!-- 信息保留静态字段 -->
     <string name="sp_name">one_piece_settings</string>
-    
+
     <!-- 版本信息 -->
-    <string name="about1">Developer：Z_0Kai\t(Ver.：5.1.0)</string>
+    <string name="about1">Developer：Z_0Kai\t(Ver.：5.1.2)</string>
     <string name="about2">Web：http://0kai.net(Receiving feedback)\nWaiting for new Ver. &amp; more apps</string>
-    
+
     <!-- 应用中的语句 -->
     <string name="str_thx_old_vision">谢谢旧版用户的支持，奖励50积分</string>
     <string name="str_ok">OK</string>
@@ -89,7 +89,7 @@
     <string name="str_star">STAR</string>
     <string name="str_boot_startup">Startup during boot</string>
     <string name="str_boot_startup_summary">Show the pet after startup the phone</string>
-    
+
     <!-- store -->
     <string name="str_local">Local</string>
     <string name="str_online">Online</string>
@@ -110,9 +110,9 @@
     <string name="str_new_version">Find New Version</string>
     <string name="str_new_res">(New)</string>
     <string name="str_download_error">Failed，No SDcard or Out of Memory!</string>
-    
+
     <string name="str_my_apps">My other Apps</string>
     <string name="str_my_apps_info">More apps by developer</string>
-    
+
     <string name="str_"></string>
 </resources>

@@ -20,20 +20,21 @@ import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
+import net.youmi.android.offers.PointsManager;
+import net.youmi.android.onlineconfig.OnlineConfigCallBack;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import a.b.c.AdManager;
-import a.b.c.onlineconfig.OnlineConfigCallBack;
-import a.b.c.os.OffersManager;
-import a.b.c.os.PointsManager;
 import akai.floatView.op.luffy.R;
 import akai.pet.one.piece.settings.PersonSettingDialog;
 
-public class StoreActivity extends Activity{
+public class StoreActivity extends Activity {
 
     private SharedPreferences mSP;
 
@@ -61,19 +62,16 @@ public class StoreActivity extends Activity{
         mContext = this;
         mSP = getSharedPreferences(getString(R.string.sp_name), MODE_PRIVATE);
 
-//		PointsManager.getInstance(this).awardPoints(250);
-
         final String IS_AD_OPEN = "is_ad_open";
-//        adsInit();
-        if(mSP.getBoolean(IS_AD_OPEN, false) == false){
+        if (mSP.getBoolean(IS_AD_OPEN, false) == false || true) {
             findViewById(R.id.store_online_btn).setVisibility(View.GONE);
             AdManager.getInstance(this).asyncGetOnlineConfig(IS_AD_OPEN, new OnlineConfigCallBack() {
                 @Override
                 public void onGetOnlineConfigSuccessful(String key, String value) {
-                    if(IS_AD_OPEN.equals(key) && "true".equals(value)){
-                        try{
+                    if (IS_AD_OPEN.equals(key) && "true".equals(value)) {
+                        try {
                             OffersManager.getInstance(StoreActivity.this).onAppLaunch();
-                        }catch(Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         mSP.edit().putBoolean(IS_AD_OPEN, true).commit();
@@ -92,26 +90,26 @@ public class StoreActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) {
                 final PersonInfo info = (PersonInfo) view.getTag();
-                if(mType == StorePersonAdapter.TYPE_LOCAL){
+                if (mType == StorePersonAdapter.TYPE_LOCAL) {
                     PersonSettingDialog dialog = null;
-                    try{
+                    try {
                         dialog = new PersonSettingDialog(mContext, info.tag);
-                        if(dialog != null)
+                        if (dialog != null)
                             dialog.show();
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         KLog2File.saveLog2File(e);
                         Toast.makeText(mContext, mSP.getString("person_show_name", "")
                                 + getString(R.string.str_app_res_error), Toast.LENGTH_LONG).show();
                         mSP.edit().putBoolean("person_visible", false).commit();
                     }
-                }else{//TYPE_ONLINE
-                    for(int i = 0; true; i++){
+                } else {//TYPE_ONLINE
+                    for (int i = 0; true; i++) {
                         String downloadName = mSP.getString("download_" + i, "");
-                        if("".equals(downloadName)){
+                        if ("".equals(downloadName)) {
                             break;
                         }
 //						else if(info.tag.equals(downloadName) && mSP.getInt("download_" + i + "_version", -1) != -1){//if have version value, had download over
-                        else if(info.tag.equals(downloadName)){//5.0.3 modify, never to spend points again
+                        else if (info.tag.equals(downloadName)) {//5.0.3 modify, never to spend points again
                             //can download normally
                             AlertDialog.Builder b = new AlertDialog.Builder(mContext);
                             String updateString = info.onlineVersion > mSP.getInt("download_" + i + "_version", -1) ? getString(R.string.str_new_res) : "";
@@ -136,12 +134,12 @@ public class StoreActivity extends Activity{
                     b.setMessage(R.string.str_person_download_ad);
                     b.setPositiveButton(R.string.str_store_download, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            if(PointsManager.getInstance(mContext).spendPoints(DOWNLOAD_PERSON_SCORE)){
-                                MobclickAgent.onEvent(mContext,"Buy");
+                            if (PointsManager.getInstance(mContext).spendPoints(DOWNLOAD_PERSON_SCORE)) {
+                                MobclickAgent.onEvent(mContext, "Buy");
 //							if(true){
                                 //start download
                                 downloadResByPerson(info);
-                            }else{
+                            } else {
                                 //need to get more score
                                 new AlertDialog.Builder(mContext)
                                         .setTitle(R.string.str_open_fail_tip)
@@ -183,7 +181,7 @@ public class StoreActivity extends Activity{
             public void onClick(View v) {
                 findViewById(R.id.store_online_btn).setSelected(false);
                 findViewById(R.id.store_local_btn).setSelected(true);
-                if(mType != StorePersonAdapter.TYPE_LOCAL){
+                if (mType != StorePersonAdapter.TYPE_LOCAL) {
                     mType = StorePersonAdapter.TYPE_LOCAL;
                     StorePersonAdapter adapter = new StorePersonAdapter(StoreActivity.this, mType);
                     mStoreGV.setAdapter(adapter);
@@ -196,7 +194,7 @@ public class StoreActivity extends Activity{
             public void onClick(View v) {
                 findViewById(R.id.store_local_btn).setSelected(false);
                 findViewById(R.id.store_online_btn).setSelected(true);
-                if(mType != StorePersonAdapter.TYPE_ONLINE){
+                if (mType != StorePersonAdapter.TYPE_ONLINE) {
                     mType = StorePersonAdapter.TYPE_ONLINE;
                     mAdapter = new StorePersonAdapter(StoreActivity.this, mType);
                     mStoreGV.setAdapter(mAdapter);
@@ -212,73 +210,72 @@ public class StoreActivity extends Activity{
                         }
                     });
 
-                    final Handler handler = new Handler(){
+                    final Handler handler = new Handler() {
                         @Override
                         public void handleMessage(Message msg) {
-                            if(msg.what == 0)
-                            {
-                                if(mIsLoading){
+                            if (msg.what == 0) {
+                                if (mIsLoading) {
                                     //update
                                     mStoreGV.setAdapter(mAdapter);
                                     mStoreGV.invalidate();
                                 }
-                            }else if(msg.what == -1){
+                            } else if (msg.what == -1) {
                                 Toast.makeText(mContext, mContext.getString(R.string.str_connect_fail), Toast.LENGTH_SHORT).show();
-                                try{//the dialog may not attach to this window
+                                try {//the dialog may not attach to this window
                                     dialog.dismiss();
-                                }catch(Exception e){}
-                            }else{
-                                try{
+                                } catch (Exception e) {
+                                }
+                            } else {
+                                try {
                                     dialog.dismiss();
-                                }catch(Exception e){}
+                                } catch (Exception e) {
+                                }
                             }
                         }
 
                     };
 
-                    new Thread(){
+                    new Thread() {
                         @Override
                         public void run() {
                             try {
                                 URL uri = new URL("http://d.0kai.net/op/persons.html");
-//								URL uri = new URL("http://d.0kai.net/op/persons2.html");
-                                HttpURLConnection  conn = (HttpURLConnection) uri.openConnection();
+                                HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
                                 conn.setRequestMethod("GET");
                                 conn.setConnectTimeout(3000);
-                                if(conn.getResponseCode() == 200){
+                                if (conn.getResponseCode() == 200) {
                                     InputStream is = conn.getInputStream();
                                     byte buffer[] = new byte[1];
                                     String data = "";
-                                    while(is.read(buffer) != -1){
+                                    while (is.read(buffer) != -1) {
                                         data += new String(buffer);
                                     }
                                     is.read(buffer);
                                     is.close();
 //									data = "mihawk,1,crocodile,1,hancock,1,kid,1,buggy,1,sanji,1,ace,2,joker,1";
                                     String[] mPersonList = data.split(",");
-                                    if(mPersonList.length != 0){
+                                    if (mPersonList.length != 0) {
                                         mData = new ArrayList<PersonInfo>();
-                                        for(int i = 0; i < mPersonList.length-1; i+=2){
+                                        for (int i = 0; i < mPersonList.length - 1; i += 2) {
                                             String name = mPersonList[i];
-                                            int version = Integer.parseInt(mPersonList[i+1]);
+                                            int version = Integer.parseInt(mPersonList[i + 1]);
                                             //had download, and now has new version
                                             PersonInfo info = new PersonInfo();
                                             info.name = DataByFile.getPersonName(name);
                                             Bitmap b = DataByFile.getPersonIcon(name);
-                                            if(b == null)
+                                            if (b == null)
                                                 b = BitmapFactory.decodeResource(getResources(), R.drawable.person_loading);
                                             info.image = b;
                                             info.tag = name;
                                             info.onlineVersion = version;
                                             //
-                                            for(int j = 0; true; j++){
+                                            for (int j = 0; true; j++) {
                                                 String downloadName = mSP.getString("download_" + j, "");
-                                                if("".equals(downloadName)){
+                                                if ("".equals(downloadName)) {
                                                     break;
-                                                }
-                                                else if(name.equals(downloadName)){
+                                                } else if (name.equals(downloadName)) {
                                                     info.flag = PersonInfo.FLAG_DOWNLOAD;
-                                                    if(mSP.getInt("download_" + j + "_version", 1) < version)
+                                                    if (mSP.getInt("download_" + j + "_version", 1) < version)
                                                         info.flag = PersonInfo.FLAG_UPDATE;
                                                     break;
                                                 }
@@ -291,25 +288,25 @@ public class StoreActivity extends Activity{
                                         handler.sendEmptyMessage(0);//close the progressing bar and update
 
                                         //update from web(bae)
-                                        for(PersonInfo info : mData){
-                                            if(!mIsLoading)
+                                        for (PersonInfo info : mData) {
+                                            if (!mIsLoading)
                                                 break;
                                             String name = info.tag;
-                                            if(name.toUpperCase().equals(info.name)){
+                                            if (name.toUpperCase().equals(info.name)) {
                                                 info.name = DataByFile.getBAEPersonName(name);
                                                 Bitmap b = DataByFile.getBAEPersonIcon(name);
-                                                if(b != null)
+                                                if (b != null)
                                                     info.image = b;
                                                 handler.sendEmptyMessage(0);
                                             }
                                         }
                                         handler.sendEmptyMessage(1);
                                     }
-                                }else{
+                                } else {
                                     handler.sendEmptyMessage(-1);
                                 }
                                 conn.disconnect();
-                            }catch(Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                                 handler.sendEmptyMessage(-1);
                             }
@@ -326,6 +323,7 @@ public class StoreActivity extends Activity{
         super.onResume();
         MobclickAgent.onResume(this);
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -341,27 +339,17 @@ public class StoreActivity extends Activity{
     /**
      * download the recourse by the person name
      */
-    private void downloadResByPerson(PersonInfo info){
+    private void downloadResByPerson(PersonInfo info) {
         int i = 0;
-        for(; true; i++){
+        for (; true; i++) {
             String downloadName = mSP.getString("download_" + i, "");
-            if("".equals(downloadName) || downloadName.equals(info.tag)){
+            if ("".equals(downloadName) || downloadName.equals(info.tag)) {
                 break;
             }
         }
         //download start
         mSP.edit().putString("download_" + i, info.tag).commit();//save before download, it had offer the ad
         DataByFile.getPersonResToFile(mContext, info, mSP, "download_" + i);
-    }
-
-    private void adsInit(){
-        try{
-            String appId = "3db7ce74f7d5c9ca", appSecret = "ada5571bdb35b62f";
-            AdManager.getInstance(this).init(appId, appSecret, false);
-            OffersManager.getInstance(this).onAppLaunch();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
     }
 
 }
