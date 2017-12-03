@@ -46,7 +46,7 @@ public class DataByFile {
 
 
     // ----------------------------------------
-    private final static String HOST = "http://media.0kai.net/pet/";
+    private final static String HOST = "http://7rflo1.com1.z0.glb.clouddn.com/";
     private final static String ACCESS_KEY = "24CcPOuqliBpwWOqZtSXUzkCvukw9QcSrJg6n3sY";
     private final static String SECRET_KEY = "w-yz2vdcsyIIvbWjuKo068WBz2c13aXbGuPvXI0S";
 //	private final static String mBucketName = "op-pet";

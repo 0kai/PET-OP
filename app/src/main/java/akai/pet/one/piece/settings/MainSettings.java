@@ -1,25 +1,16 @@
 package akai.pet.one.piece.settings;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
-
-import net.youmi.android.AdManager;
-import net.youmi.android.update.AppUpdateInfo;
-import net.youmi.android.update.a;
 
 import akai.floatView.op.luffy.R;
 import akai.pet.one.piece.AppService;
@@ -59,12 +50,6 @@ public class MainSettings extends PreferenceActivity implements SharedPreference
         if (sp.getBoolean("person_visible", false))
             startService(floatViewService);
 
-        try {
-            String appId = "3db7ce74f7d5c9ca", appSecret = "ada5571bdb35b62f";
-            AdManager.getInstance(this).init(appId, appSecret, false, true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -146,52 +131,6 @@ public class MainSettings extends PreferenceActivity implements SharedPreference
      * 检测更新，从有米下载
      */
     private void updateApp() {
-        final ProgressDialog dialog = ProgressDialog.show(MainSettings.this, null, getString(R.string.str_loading));
-        dialog.setCancelable(true);
-        dialog.setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-            }
-        });
-        AdManager.getInstance(this).asyncCheckAppUpdate(new a() {
-            @Override
-            public void a(final AppUpdateInfo appUpdateInfo) {
-                if (!dialog.isShowing())
-                    return;
-
-                dialog.dismiss();
-                //检查更新回调，注意，这里是在UI线程回调的，因此您可以直接与UI交互，但不可以进行长时间的操作(如在这里访问网络  是不允许的)
-                if (appUpdateInfo == null) {
-                    //当前已经是最新版本
-                    Toast.makeText(MainSettings.this, R.string.str_no_new_version, Toast.LENGTH_SHORT).show();
-                } else {
-                    //有更新信息
-                    new AlertDialog.Builder(MainSettings.this)
-                            .setTitle(R.string.str_new_version)
-                            .setMessage(appUpdateInfo.getUpdateTips())//这里是版本更新信息
-                            .setNegativeButton(R.string.str_store_download,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appUpdateInfo.getUrl()));
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            MainSettings.this.startActivity(intent);
-                                            //ps:这里示例点击"马上升级"按钮之后简单地调用系统浏览器进行新版本的下载，
-                                            //但强烈建议开发者实现自己的下载管理流程，这样可以获得更好的用户体验。
-                                        }
-                                    })
-                            .setPositiveButton(R.string.str_cancel,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            dialog.cancel();
-                                        }
-                                    }).create().show();
-                }
-            }
-        });
     }
 
     private void openMyApps() {

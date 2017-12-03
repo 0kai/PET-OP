@@ -20,11 +20,6 @@ import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
-import net.youmi.android.offers.PointsManager;
-import net.youmi.android.onlineconfig.OnlineConfigCallBack;
-
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -61,29 +56,6 @@ public class StoreActivity extends Activity {
         setContentView(R.layout.store_layout);
         mContext = this;
         mSP = getSharedPreferences(getString(R.string.sp_name), MODE_PRIVATE);
-
-        final String IS_AD_OPEN = "is_ad_open";
-        if (mSP.getBoolean(IS_AD_OPEN, false) == false || true) {
-            findViewById(R.id.store_online_btn).setVisibility(View.GONE);
-            AdManager.getInstance(this).asyncGetOnlineConfig(IS_AD_OPEN, new OnlineConfigCallBack() {
-                @Override
-                public void onGetOnlineConfigSuccessful(String key, String value) {
-                    if (IS_AD_OPEN.equals(key) && "true".equals(value)) {
-                        try {
-                            OffersManager.getInstance(StoreActivity.this).onAppLaunch();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        mSP.edit().putBoolean(IS_AD_OPEN, true).commit();
-                        findViewById(R.id.store_online_btn).setVisibility(View.VISIBLE);
-                    }
-                }
-
-                @Override
-                public void onGetOnlineConfigFailed(String key) {
-                }
-            });
-        }
 
         mStoreGV = (StoreGridView) findViewById(R.id.store_gridview);
         mStoreGV.setOnItemClickListener(new OnItemClickListener() {
@@ -126,41 +98,7 @@ public class StoreActivity extends Activity {
                             return;
                         }
                     }
-                    //need to download with offer ad
-                    AlertDialog.Builder b = new AlertDialog.Builder(mContext);
-                    b.setTitle(info.tag.toUpperCase() + getString(R.string.str_store_download)
-                            + getString(R.string.str_open_tip_1) + PointsManager.getInstance(mContext).queryPoints()
-                            + getString(R.string.str_open_tip_2) + DOWNLOAD_PERSON_SCORE + ")");
-                    b.setMessage(R.string.str_person_download_ad);
-                    b.setPositiveButton(R.string.str_store_download, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (PointsManager.getInstance(mContext).spendPoints(DOWNLOAD_PERSON_SCORE)) {
-                                MobclickAgent.onEvent(mContext, "Buy");
-//							if(true){
-                                //start download
-                                downloadResByPerson(info);
-                            } else {
-                                //need to get more score
-                                new AlertDialog.Builder(mContext)
-                                        .setTitle(R.string.str_open_fail_tip)
-                                        .setMessage(R.string.str_open_fail_msg)
-                                        .setPositiveButton(R.string.str_get_free_score,
-                                                new DialogInterface.OnClickListener() {
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        OffersManager.getInstance(mContext).showOffersWall();
-                                                    }
-                                                })
-                                        .setNegativeButton(R.string.str_cancel, null)
-                                        .show();
-                            }
-                        }
-                    });
-                    b.setNeutralButton(R.string.str_get_free_score, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            OffersManager.getInstance(mContext).showOffersWall();
-                        }
-                    });
-                    b.show();
+                    downloadResByPerson(info);
                 }
             }
         });
@@ -328,12 +266,6 @@ public class StoreActivity extends Activity {
     protected void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        OffersManager.getInstance(this).onAppExit();
     }
 
     /**
